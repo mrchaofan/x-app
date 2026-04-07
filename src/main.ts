@@ -1,5 +1,5 @@
 import {app, Menu, webContents } from 'electron'
-import Window from './packages/window/Window'
+import TabbedWindow from './packages/window/TabbedWindow'
 import FloatBall from './packages/float-ball/FloatBall'
 
 app.whenReady().then(() => {
@@ -22,11 +22,9 @@ app.whenReady().then(() => {
             ],
         },
     ]))
-    const window = new Window({
-        
-    })
+    const mainWindow = new TabbedWindow({})
 
-    window.addNewTab('https://www.baidu.com')
+    mainWindow.addNewTab('https://www.baidu.com')
 
     new FloatBall()
 })

@@ -1,11 +1,11 @@
 import { View, WebContentsView } from 'electron'
-import Window from './Window'
+import TabbedWindow from './TabbedWindow'
 import { Tab } from './Tab'
 
 
 export default class TabView extends View {
     public webView?: WebContentsView
-    constructor(private window: Window, private tab: Tab) {
+    constructor(private window: TabbedWindow, private tab: Tab) {
         super()
         this.on('bounds-changed', this.onResized)
     }

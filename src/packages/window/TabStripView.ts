@@ -1,12 +1,12 @@
 import { View, WebContentsView } from 'electron'
 import path from 'path'
-import Window from './Window'
+import TabbedWindow from './TabbedWindow'
 
 
 export default class TabStripView extends View {
     private webContentsView: WebContentsView
     private readPromise: Promise<void>
-    constructor(public window: Window) {
+    constructor(public window: TabbedWindow) {
         super()
         this.webContentsView = new WebContentsView({
             webPreferences: {
@@ -41,7 +41,7 @@ export default class TabStripView extends View {
         })
 
         this.window.tabList.on('tab-added', async (tab) => {
-            tab.on('title-changed', async (title) => {
+            tab.on('title-changed', async (title: string) => {
                 await this.readPromise
                 this.webContentsView.webContents.send('__update-tab', {
                     id: tab.id,
@@ -50,7 +50,7 @@ export default class TabStripView extends View {
                 })
             })
 
-            tab.on('icon-changed', async (icon) => {
+            tab.on('icon-changed', async (icon: string) => {
                 await this.readPromise
                 this.webContentsView.webContents.send('__update-tab', {
                     id: tab.id,

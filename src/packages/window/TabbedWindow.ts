@@ -5,18 +5,18 @@ import TabStripView from './TabStripView'
 import { Tab } from './Tab'
 import TabListView from './TabListView'
 
-export interface IWindowConstructorOptions {
+export interface TabbedWindowOptions {
     x?: number
     y?: number
     width?: number
     height?: number
 }
 
-export default class Window extends BaseWindow {
-    public tabList = new TabList()
-    public tabStripView: TabStripView = new TabStripView(this)
-    public tabListView = new TabListView(this)
-    constructor(private options: IWindowConstructorOptions) {
+export default class TabbedWindow extends BaseWindow {
+    public readonly tabList = new TabList()
+    public readonly tabStripView: TabStripView = new TabStripView(this)
+    public readonly tabListView = new TabListView(this)
+    constructor(private readonly options: TabbedWindowOptions) {
         super({
             x: options.x,
             y: options.y,

@@ -4,10 +4,10 @@ import path from 'path'
 
 export default class FloatBall extends BrowserWindow {
     constructor() {
-        const screenBounds = screen.getPrimaryDisplay().bounds
+        const workArea = screen.getPrimaryDisplay().workArea
         super({
-            x: screenBounds.width - 60 - 80,
-            y: screenBounds.width - 60 - 20,
+            x: workArea.x + workArea.width - 60 - 80,
+            y: workArea.y + workArea.height - 60 - 20,
             width: 60,
             height: 60,
             frame: false,

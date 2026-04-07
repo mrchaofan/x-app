@@ -1,11 +1,11 @@
 import { View } from 'electron'
-import Window from './Window'
+import TabbedWindow from './TabbedWindow'
 import { Tab } from './Tab'
 import TabView from './TabView'
 
 export default class TabListView extends View {
     public tabViewMap = new Map<Tab, TabView>()
-    constructor(private window: Window) {
+    constructor(private window: TabbedWindow) {
         super()
         this.window.tabList.on('tab-added', this.onTabAdded)
         this.window.tabList.on('active-tab-changed', this.onActiveTabChanged)
@@ -27,7 +27,7 @@ export default class TabListView extends View {
 
     onActiveTabChanged = (tab: Tab, oldTab: Tab | null) => {
         const newTabView = this.tabViewMap.get(tab) ?? null
-        const oldTabView = this.tabViewMap.get(oldTab) ?? null
+        const oldTabView = oldTab ? this.tabViewMap.get(oldTab) ?? null : null
 
         if (oldTabView) {
             oldTabView.onDeselected()
