@@ -1,6 +1,7 @@
-import {app, Menu, webContents } from 'electron'
+import { app, Menu, webContents } from 'electron'
 import TabbedWindow from './packages/window/TabbedWindow'
 import FloatBall from './packages/float-ball/FloatBall'
+import { ScreenShotWindow } from './packages/screenshot/Screenshot'
 
 app.whenReady().then(() => {
     Menu.setApplicationMenu(Menu.buildFromTemplate([
@@ -17,6 +18,20 @@ app.whenReady().then(() => {
                                 mode: 'detach',
                             })
                         }
+                    },
+                },
+                {
+                    label: 'Take Screenshot',
+                    accelerator: 'CmdOrCtrl+Shift+1',
+                    click: () => {
+                        ScreenShotWindow.start()
+                    },
+                },
+                {
+                    label: 'Stop Screenshot',
+                    accelerator: 'Esc',
+                    click: () => {
+                        ScreenShotWindow.stop()
                     },
                 },
             ],

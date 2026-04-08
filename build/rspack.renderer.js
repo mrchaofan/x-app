@@ -17,6 +17,7 @@ module.exports = defineConfig({
         window: path.resolve(baseDir, 'src/packages/window/renderer/index.ts'),
         modal: path.resolve(baseDir, 'src/packages/modal/renderer/index.ts'),
         floatBall: path.resolve(baseDir, 'src/packages/float-ball/renderer/index.ts'),
+        screenshot: path.resolve(baseDir, 'src/packages/screenshot/renderer/index.ts'),
     },
     output: {
         path: path.resolve(baseDir, 'dist/renderer'),
@@ -89,6 +90,11 @@ module.exports = defineConfig({
             filename: 'float-ball.html',
             template: path.resolve(baseDir, 'src/index.html'),
             chunks: ['floatBall'],
+        }),
+        new rspack.HtmlRspackPlugin({
+            filename: 'screenshot.html',
+            template: path.resolve(baseDir, 'src/index.html'),
+            chunks: ['screenshot'],
         }),
     ],
     experiments: {

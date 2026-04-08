@@ -2219,6 +2219,11 @@ keyv@^4.0.0, keyv@^4.5.4:
   dependencies:
     json-buffer "3.0.1"
 
+konva@^10.2.3:
+  version "10.2.3"
+  resolved "https://registry.yarnpkg.com/konva/-/konva-10.2.3.tgz#897c96a481538ea2eebe2f00444e41209bfa986f"
+  integrity sha512-NDGeIxm2nsQcp6oqZKS9T764JEi53RpQvpUxV2EK7Awm49fwdd1+EB1Nq1nyspRc0hOAKyKssoTFvPaKwiSUog==
+
 launch-editor@^2.6.1:
   version "2.13.2"
   resolved "https://registry.yarnpkg.com/launch-editor/-/launch-editor-2.13.2.tgz#41d51baaf8afb393224b89bd2bcb4e02f2306405"
@@ -3321,6 +3326,11 @@ vue-eslint-parser@^10.4.0:
     espree "^10.3.0 || ^11.0.0"
     esquery "^1.6.0"
     semver "^7.6.3"
+
+vue-konva@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/vue-konva/-/vue-konva-3.4.0.tgz#f1dfdde8f4988e22e197ad1e7cc47549f0cff695"
+  integrity sha512-l7yqAPmc6gPbdXzxoukTiXzA6EdqTtPhzQp1pTdppwWLiimPCgFHcqp8nApXQN5dqF11p2OejwjKv150cf9ncA==
 
 vue-tsc@^3.2.6:
   version "3.2.6"
