@@ -33,7 +33,6 @@ export class ScreenShotWindow extends BrowserWindow {
             skipTaskbar: true,
             show: false,
             hasShadow: false,
-            hiddenInMissionControl: true,
             enableLargerThanScreen: true,
             webPreferences: {
                 sandbox: false,

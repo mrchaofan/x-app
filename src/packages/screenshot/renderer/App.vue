@@ -8,7 +8,8 @@
             zIndex: 999
         }"
         @mouseenter="setIgnoreMouseEvent(false)"
-        @click="setIgnoreMouseEvent(true)"
+        @mouseleave="onMouseLeave"
+        @click="toggleRecording"
         >
             <ScreenRecordControlPanel></ScreenRecordControlPanel>
         </div>
@@ -19,6 +20,20 @@
 import { ipcRenderer } from 'electron'
 import ScreenRecordPanel from './ScreenRecordPanel/ScreenRecordPanel.vue'
 import ScreenRecordControlPanel from '@/packages/ScreenRecordControlPanel/ScreenRecordControlPanel.vue'
+import { ref } from 'vue'
+
+const isRecording = ref(false)
+
+
+const toggleRecording = () => {
+    isRecording.value = !isRecording.value
+}
+
+const onMouseLeave = () => {
+    if (isRecording.value) {
+        setIgnoreMouseEvent(true)
+    }
+}
 
 const setIgnoreMouseEvent = (ignore: boolean) => {
     ipcRenderer.send('set-ignore-mouse-events', ignore)
